@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <!-- Carosel -->
+      
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1602094395895-fb8070114e38" class="d-block w-100" alt="..." height="700px">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1605955794720-651b9ae7f5e7" class="d-block w-100" alt="..." height="700px">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1629631800396-48e28b337673" class="d-block w-100" alt="..." height="700px">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1633698707271-86d88c99bc4e" class="d-block w-100" alt="..." height="700px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- End of Carosel -->
+      
+      <!-- About Text V -->
+
+
+
+
+
+<div class="blog">
+
+
+    <div class="container py-4">
+<h1 class="text-center py-5">Blogs</h1>
+        <div class="row mb-2">
+          {% for i in blog  %}
+         
+            <div class="col-md-6">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary-emphasis">{{i.name}}</strong>
+                  <h3 class="mb-0">{{i.title}}</h3>
+                  <div class="mb-1 text-body-secondary">{{i.short_description}}</div>
+                  <p class="card-text mb-auto">{{i.created_at}}</p>
+                  <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                    Continue reading
+                    <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                  </a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                  <img src="media/{{i.thumbnail}}" alt="" class="thumbnail" height="200px" width="200px">
+                </div>
+              </div>
+            </div>
+            
+    </div>
+    {% endfor %}
+</div>
+
+  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="b-example-divider"></div>
+
+
+    {% endblock %}
